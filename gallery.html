@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="description"content="BarberCraft">
+        <meta name="keywords"content="barbers">
+        <meta name="author"content="Camran Davids">
+        <meta name="viewpoint"content="width=device-widght, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet"
+        href="style.css">
+        <title>gallery</title>
+    </head>
+    <body>
+        <header>
+            <img src="Images/a.JPEG"style="width:50px;height: 50px">
+        <nav align="right" class="navbar">
+        <a href="home.html">Home|</a>
+        <a href="about.html">About us|</a>
+        <a href="gallery.html">Gallery|</a>
+        <a href="services.html">Services|</a>
+        <a href="contact.html">Contact us|</a>
+    </nav>
+    <main><div class="row">
+  <div class="column">
+    <img src="Images/b.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="Images/c.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="Images/d.webp" onclick="openModal();currentSlide(3)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="Images/e.png" onclick="openModal();currentSlide(4)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="Images/f.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 5</div>
+      <img src="Images/b.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 5</div>
+      <img src="Images/c.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 5</div>
+      <img src="Images/d.webp" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">4 / 5</div>
+      <img src="Images/e.png" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">5 / 5</div>
+      <img src="Images/f.jpg" style="width:100%">
+    </div>   
+    
+    
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="Images/b.jpg" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="Images/c.jpg" onclick="currentSlide(2)" alt="Snow">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="Images/d.webp" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="Images/f.jpg" onclick="currentSlide(4)" alt="Lights">
+    </div>
+    <div class="column">
+      <img class="demo" src="Images/e.png" onclick="currentSlide(4)" alt="Lights">
+    </div>
+  </div>
+</div>
+        <img src="Images/b.jpg"style="width: 250px;height: 250px">
+        <img src="Images/c.jpg"style="width: 250px;height: 250px">
+        <img src="Images/d.webp"style="width: 250px;height: 250px">
+        <img src="Images/e.png"style="width: 250px;height: 250px">
+        <img src="Images/f.jpg"style="width: 250px;height: 250px">
+    </main>
+    <footer>
+    &copy;ST10516222
+</footer>
+</body>
+</html>

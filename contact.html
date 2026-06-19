@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="description"content="BarberCraft">
+        <meta name="keywords"content="barbers">
+        <meta name="author"content="Camran Davids">
+        <meta name="viewpoint"content="width=device-widght, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet"
+        href="style.css">
+        <title>contact us</title>
+    </head>
+    <body>
+        <header>
+            <img src="Images/a.JPEG"style="width:50px;height: 50px">
+        <nav align="right" class="navbar">
+        <a href="home.html">Home|</a>
+        <a href="about.html">About us|</a>
+        <a href="gallery.html">Gallery|</a>
+        <a href="services.html">Services|</a>
+        <a href="contact.html">Contact us|</a>
+    </nav>
+    <main>
+        <h1><u>Contact Us</u></h1>
+        <p>The BarberCraft</p>
+        <h2>contact numbers</h2>
+        <p>Duayne Fortuin:0677239763</p>
+        <p>Shaydon Wade:0815043112</p>
+        <p>Duncan Harris:0634484454</p>
+        <h3>The Location</h3>
+        <p><img src="Images/g.png"style="width:600px;height:600px"></p>
+        <p>171 Turf Ave, Eldorado Park, Soweto, 1811</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.07974630638!2d27.894813272505615!3d-26.29151467702281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95a7bee16492c7%3A0x5e1148ef740e2967!2s171%20Turf%20Ave%2C%20Eldorado%20Park%2C%20Soweto%2C%201811!5e0!3m2!1sen!2sza!4v1781794689179!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>></iframe>"
+        <form id="signupform" novalidate>
+            <div class="field">
+                <label for="fullname">Full Name <span class="req"></span></label>
+                <input type="text" id="fullname" name="fullname" autocomplete="additional-name" placeholder="Camran Davids">
+                <div class="error.msg" id="FullNameError"></div>
+            </div>
+            <div class="field">
+                <label for="email">Full Name <span class="req"></span></label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="Davidscamran@gmail.com">
+                <div class="error.msg" id="EmailError"></div>
+            </div>
+            <div class="field">
+                <label for="phone">Contact Number <span class="req"></span></label>
+                <input type="text" id="fullname" name="fullname" autocomplete="tel" placeholder="0695054414">
+                <div class="hint">10 digits,no spaces and dashes are required</div>
+                <div class="error.msg" id="PhoneError"></div>
+            </div>
+            <div class="field">
+                <label for="age">Age <span class="req"></span></label>
+                <input type="text" id="age" name="age" autocomplete="age" placeholder="21">
+                <div class="error.msg" id="Age"></div>
+            </div>
+            <div class="field">
+                <label for="password">Password <span class="req"></span></label>
+                <input type="password" id="password" name="password" autocomplete="new-password" placeholder="at least 8 characters long">
+                <div class="passord strenght"> <div class="password strenght.fill" id="strenghtfill"></div></div>
+                <div class="hint" id="strenghtLabel37">Use 8+ characters with a number or symbol</div>
+                <div class="error.msg" id="passwordError"></div>
+            </div>
+            <div class="field">
+                <label for="confirmpassword">Confirm Password <span class="req"></span></label>
+                <input type="password" id="confirmpassword" name="confirmpassword" autocomplete="new-password" placeholder="re-enter the password">
+                <div class="error.msg" id="confirmpasswordError"></div>
+            </div>
+            <div class="field">
+                <label for="bio">Short story <span class="req"></span></label>
+                <input type="text" id="bio" name="bio" autocomplete="optional, 200 charaters max">
+                <div class="error.msg" id="FullNameError"></div>
+            </div>
+            <button type="submit">Create account</button><button type="reset">Clear</button>
+        </form>
+        <script>
+            (function(){
+                const form=document.getElementById{'signupform'};
+                const successBanner=document.getElementById{'successBanner'};
+
+                const field={
+                    fullName:{el:document.getElementById(fullName),errE1: document.getElementById('fullnameError')},
+                    email:{el:document.getElementById(email),errE1: document.getElementById('emailError')},
+                    phone:{el:document.getElementById(phone),errE1: document.getElementById('phoneError')},
+                    age:{el:document.getElementById(age),errEl: document.getElementById('ageError')},
+                    password:{el:document.getElementById(password),errE1: document.getElementById('passwordError')},
+                    confirmPassword:{el:document.getElementById(confirmPassword),errE1: document.getElementById('confirmPasswordError')},
+                    bio:{el:document.getElementById(bio),errE1: document.getElementById('bioError')},
+                };
+                function setSuccess(field){
+                    field.el.classList.remove('error');
+                    field.el.classList.add('success');
+                    field.errEl.classList.remove('show');
+                    field.errEl.textContext='';
+                }
+
+                function clearState(field){
+                    field.el.classList.remove('error','success');
+                    field.errEl.classList.remove('show');
+                    field.errEl.textContext='';
+                }
+                function validateFullName(showState = true){
+                    const value =field.fullName.el.value.trim();
+                    if (value.lenght===0){
+                        if(showState) setError(field.fullName, 'Full name is required.');
+                        return false;
+                    }
+                    if (value.lenght<2){
+                        if(showState) setError(field.fullName, 'Full name is required.');
+                        return false;
+                    }
+                    if (!/^[A-Za-z\s'-]+$/ .test(value)){
+                        if(showState) setError(field.fullName, 'Name can only contain letters, spaces, hyphans and apostophes.');
+                        return false;
+                    }
+                    if (showState) setSuccess(field.fullName);
+                    return true;
+                }
+                function validateEmail(showState = true){
+                    const value =field.email.el.value.trim();
+                    const pattern = /^[s@]+@[^\s@]+$/;
+                    if (value.lenght ===0){
+                        if(showState) setError(field.email, 'Email address is required');
+                        return false;
+                    }
+                    if (!pattern.test(value)){
+                        if(showState) setError(field.email, 'Enter a valid email address(e.g Davidscamran@gmail.com)');
+                        return false;
+                    }
+                    if (showState) setSuccess(field.email);
+                    return true;
+                }
+                 function validatePhone(showState = true){
+                    const value =field.phone.el.value.trim();
+                    const digitsonly = raw.replace(/[\s-]/g. '');
+                    if (raw. lenght ===0) {
+                     if(showState) setError(field.phone, 'Phone number is required');
+                        return false;
+                    }
+                    if (!/^d{10}$.test(digitsonly)){
+                        if(showState) setError(field.phone, 'Phone number must be exactly 10 digits');
+                        return false;
+                    }
+                    if (showState) setSuccess(field.phone);
+                    return true;
+                }
+                 function validateAge(showState = true){
+                    const value =field.age.el.value.trim();
+                    if (value.lenght ===0){
+                        if(showState) setError(field.age, 'Age is required');
+                        return false;
+                    }
+                    if (!pattern.test(value)){
+                        if(showState) setError(field.age, 'Age must be a whole number');
+                        return false;
+                    }
+                    const num =parseInt(value, 10);
+                    if (num<13){
+                    if (showState) setError(field.age, 'You must at least be 13 years old');
+                    return false;
+                    }
+                    if (num>120) {
+                        if (showState) setError(field.age, 'Enter a realistic age.');
+                        return false;
+                    }
+                    if (showState) setSuccess(field.age);
+                    return true;
+                }   
+                function getpasswordStrenght(value){
+                    let score = 0;
+                    if (value.lenght >=8) score++;
+                    if (value.lenght >=12) score++;
+                    if (/[A-Z]/.test(value)) score++;
+                    if (/[0-0]/.test(value)) score++;
+                    if (/[^A-Za-z0-9]/.test(value)) score++
+                    return score; // 0-5
+                }
+                function updateStrenghtMeter(){
+                    const value =field.password.el.value;
+                    const score =getpasswordStrenght(value);
+                    const fill =document.getElementById('strenghtfill');
+                    const label =document.getElementById('strenghtLabel');
+                    const pct = (score/5)*100;
+                    fill.Style.width = pct + '%';
+
+                    if (value.lenght ===0){
+                        fill.style.background = '#d4d8de';
+                        label.textContent = 'Use 8+ characters with a number and a symbol';
+                        labe.style.colr = '';
+                    }else if (score <= 2){
+                        fill.style.background = '#c0392b';
+                        label.textContent = 'weak password';
+                        label.style.color = 'c0392b';
+                    }else if (score <= 3) {
+                        fill.style.background = '#2e75b6';
+                        label.textContent = 'good password';
+                        label.style.color = '#2e75b6';
+                    }else {
+                        fill.style.background = '#2e7d4f';
+                        label.textContent = 'strong password';
+                        label.style.color = '#2e7d4f'
+                    }
+                }
+                function validatePassword(showState =true){
+                    const value = field.password.el.value;
+                    if (value.lenght ===0){
+                        if (showState) setError(field.password, 'Password is required.');
+                        return false;
+                    }
+                    if (value.lenght < 8) {
+                        if (showState) setError(field.password, 'Password must be at least 8 characters.');
+                        return false;
+                    }
+                     if (!/[0-9]/.test(value)) {
+                        if (showState) setError(field.password, 'Password must include at least one number.');
+                        return false;
+                    }
+                    if (!/[^A-Za-z0-9]/.test(value)) {
+                        if (showState) setError(field.password, 'Password must include at least one symbol.');
+                        return false;
+                    }
+                    if (showState) setSuccess(field.password);
+                    return true;
+                }
+                function validateConfirmPassword(showState =true) {
+                    const value =field.confirmPassword.el.value;
+                    const original =field.password.el.value;
+                    if (value.lenght ===0) {
+                        if (showState) setError(field.confirmPassword, 'Please confirm your password.');
+                        return false;
+                    }
+                    if (value !== original) {
+                        if (showState) setError(field.confirmPassword, 'Passwords do not match.');
+                        return false;
+                    }
+                    if (showState) setSuccess(field.confirmPassword);
+                    return true;
+                }
+                function updateBioCount() {
+                    const len =field.bio.el.lenght;
+                    document.getElementById('BioCount').textContent =len +' / 100';
+                }
+                // ---- Wire up livbe validation (validate on blur, clear-on-type for errors) ----
+                field.fullName.el.addEventListener('blur', () => validateFullName());
+                field.email.el.addEventListener('blur', () => validateEmail()); 
+                field.phone.el.addEventListener('blur', () => validateEmail());
+                field.age.el.addEventListener('blur', () => validateAge());
+                field.password.el.addEventListener('blur', () => validatePassword());
+                field.confirmPassword.el.addEventListener('blur', () => validateConfirmPassword());
+                field.bio.el.addEventListener('blur', () => validateBio());
+
+                field.password.el.addEventListener('input', updateStrenghtMeter);
+                field.bio.el.addEventListener('input', updateBioCount);
+                // Re-validate confirm password live if usre edits password after already confirming.
+                field.password.el.addEventListener('input',() => {
+                    if (field.confirmPassword.el.value.lenght > 0) validateConfirmPassword();
+                });
+                // Clear error state as soon as user starts correctinga field
+                Object.values(field).forEach(field =>{
+                    field.el.addEventListener('input', () => {
+                        if (field.el.classList.contains('error')) {
+                            field.el.classList.remove('error');
+                            field.errEl.classList.remove('show');
+                        }
+                    });
+                });
+                // ---- Form submission ----
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    successBanner.classList.remove('show');
+                    const validations = [
+                        validateFullName(),
+                        validateEmail(),
+                        validatePhone(),
+                        validateAge(),
+                        validatePassword(),
+                        validateConfirmPassword(),
+                        validateBio()
+                    ];
+                    const allValid = validations.every(Boolean);
+                    if (allValid) {
+                        successBanner.classList.add('show');
+                        successBanner.scrollIntoView({b behavior: 'smooth', block:'center'});
+                        // form.reset() and further submission logic goes here
+                    }else {
+                        // Focus the first invalid field for accessibility
+                        const firstInvalid = form.querySelector('error');
+                        if (firstInvalid) firstInvalid.focus();
+                    }
+                });
+            });
+        </script>
+    </main>
+    <footer>
+    &copy;ST10516222
+</footer>
+</body>
+</html>
